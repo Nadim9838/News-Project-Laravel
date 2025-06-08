@@ -11,15 +11,14 @@ class SettingController extends Controller
 {
     public function index(Request $request)
     {
-        $query = Setting::query();
-        $settings = $query->paginate();
+        $setting = Setting::first();
         
         if ($request->ajax()) {
             return response()->json([
-                'html' => view('partials.settings_table', compact('settings'))->render()
+                'html' => view('partials.settings_table', compact('setting'))->render()
             ]);
         }
-        return view('admin.settings', compact('settings'));
+        return view('admin.settings', compact('setting'));
     }
 
     public function store(Request $request)

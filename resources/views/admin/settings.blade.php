@@ -71,7 +71,7 @@
                         <div class="mb-3">
                             <label for="edit_website_logo" class="form-label">Website Logo</label>
                             <input type="file" class="form-control" id="edit_website_logo" name="website_logo">
-                            <img id="currentImage" src="" class="img-thumbnail mt-2" width="100">
+                            <img id="currentImage" src="" class="img-thumbnail mt-2 bg-primary" width="100">
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -100,7 +100,7 @@
         </div>
         <div class="card-body">
             <div id="settings-container">
-                @include('partials.settings_table', ['settings' => $settings])
+                @include('partials.settings_table', ['setting' => $setting])
             </div>
         </div>
     </div>
@@ -252,7 +252,7 @@
                         const setting = response.data;
                         $('#settingDetailsContent').html(`
                             <div class="text-center mb-3">
-                                <img src="{{ asset('storage/website_logo/') }}/${setting.website_logo}" class="img-fluid rounded" style="max-height: 200px;">
+                                <img src="{{ asset('storage/') }}/${setting.website_logo}" class="img-fluid rounded bg-primary" style="max-height: 200px;">
                             </div>
                             <table class="table table-bordered">
                                 <tr>
@@ -297,7 +297,7 @@
                         $('#edit_setting_id').val(setting.id);
                         $('#edit_website_name').val(setting.website_name);
                         $('#edit_footer_desc').val(setting.footer_desc);
-                        $('#currentImage').attr('src', `{{ asset('storage/website_logo') }}/${setting.website_logo}`);
+                        $('#currentImage').attr('src', `{{ asset('storage/') }}/${setting.website_logo}`);
                         $('#editSettingsModal').modal('show');
                     },
                     error: function(xhr) {

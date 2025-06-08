@@ -14,6 +14,10 @@ Route::get('/', function () {
 
 Route::controller(HomeController::class)->group(function() {
     Route::get('/home', 'index')->name('home');
+    Route::get('/category/{id}',  'categoryWiseNews')->name('category.news');
+    Route::get('/post/{id}',  'singleNews')->name('single.news');
+    Route::get('/search',  'searchNews')->name('search.news');
+    Route::get('/author/{id}',  'authorWiseNews')->name('author.news');
 });
 
 Route::get('/dashboard', function () {

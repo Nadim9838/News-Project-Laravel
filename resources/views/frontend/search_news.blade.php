@@ -1,4 +1,5 @@
 <x-frontend>
+  <h2 class="page-heading">Search: {{ $query }} </h2>
   @forelse($posts as $post)
     <div class="post-content">
       <div class="row">
